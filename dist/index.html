@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwitchSection</title>
+
+  <style>
+    body {
+      margin: 0;
+    }
+    
+    .section-wrap {
+      display: flex;
+      position: relative;
+    }
+
+    .sticky-imgs {
+      overflow: hidden;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      width: 50%;
+    }
+
+    .sticky-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+
+      color: #fff;
+      font-size: 80px;
+      font-weight: 900;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      opacity: 0;
+      transform: scale(1.2);
+      transition: 1.5s;
+    }
+
+    .sticky-img.active {
+      transition: .5s;
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .sticky-img--sec01 {
+      background: #D9F0E4;
+    }
+
+    .sticky-img--sec02 {
+      background: #F9F3E5;
+    }
+
+    .sticky-img--sec03 {
+      background: #F1D589;
+
+    }
+
+    #sections {
+      width: 50%;
+    }
+
+    #sections>section {
+      padding: 120px 5%;
+      line-height: 1.8;
+      transition: .35s;
+    }
+
+    #sections>section.active {
+      background: #f9f9f9;
+    }
+
+    #sections>section h1 {
+      margin-bottom: 80px;
+    }
+
+    #sections>section p {
+      margin-bottom: 60px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="section-wrap">
+    <div class="sticky-imgs">
+      <div class="sticky-img sticky-img--sec01">1</div>
+      <div class="sticky-img sticky-img--sec02">2</div>
+      <div class="sticky-img sticky-img--sec03">3</div>
+    </div>
+    <div id="sections">
+      <section data-name="sec01" data-target="sticky-img--sec01">
+        <h1>タイトル</h1>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+      </section>
+      <section data-name="sec02" data-target="sticky-img--sec02">
+        <h1>タイトル</h1>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+      </section>
+      <section data-name="sec03" data-target="sticky-img--sec03">
+        <h1>タイトル</h1>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+        <p>
+          この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js"></script>
+  <script src="./main.js"></script>
+  <script>
+    //sticky IE対策
+    Stickyfill.add($('.sticky-imgs'));
+
+    var ss = new SwitchSection('sections', {});
+
+    ss.on('switch', function (e) {
+      $('#sections section').removeClass('active');
+      $(e.$_element).addClass('active');
+
+      $('.sticky-img').removeClass('active');
+      $('.' + e.target).addClass('active');
+    });
+  </script>
+</body>
+
+</html>
