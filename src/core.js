@@ -5,12 +5,20 @@ let observer = new Observer();
 
 export default class {
   constructor(selector, options = {}) {
-    this.selector = document.getElementById(selector);
-    this.current_section = null;
-    this.before_section = null;
+    let self = this;
+    if( Array.isArray(selector) ) {
+      self.selectors = [];
+      selector.forEach((selector) => {
+        self.selectors.push( document.getElementById(selector) );
+      });
+    } else {
+      self.selectors = document.getElementById(selector).children;
+    }
+    self.current_section = null;
+    self.before_section = null;
 
-    this.reset();
-    this.events();
+    self.reset();
+    self.events();
   }
   on(eventType, callback) {
     switch (eventType) {
@@ -25,7 +33,7 @@ export default class {
   reset() {
     let self = this;
     self.sections = [];
-    Array.prototype.forEach.call(self.selector.children, (element, index) => {
+    Array.prototype.forEach.call(self.selectors, (element, index) => {
       self.sections.push({
         $_element: element,
         id: index,

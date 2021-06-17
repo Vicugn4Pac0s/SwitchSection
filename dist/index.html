@@ -95,7 +95,7 @@
       <div class="sticky-img sticky-img--sec03">3</div>
     </div>
     <div id="sections">
-      <section data-name="sec01" data-target="sticky-img--sec01">
+      <section id="section01" data-name="sec01" data-target="sticky-img--sec01">
         <h1>タイトル</h1>
         <p>
           この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
@@ -110,7 +110,7 @@
           この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
         </p>
       </section>
-      <section data-name="sec02" data-target="sticky-img--sec02">
+      <section id="section02" data-name="sec02" data-target="sticky-img--sec02">
         <h1>タイトル</h1>
         <p>
           この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
@@ -125,7 +125,7 @@
           この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
         </p>
       </section>
-      <section data-name="sec03" data-target="sticky-img--sec03">
+      <section id="section03" data-name="sec03" data-target="sticky-img--sec03">
         <h1>タイトル</h1>
         <p>
           この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
@@ -150,7 +150,7 @@
     //sticky IE対策
     Stickyfill.add($('.sticky-imgs'));
 
-    var ss = new SwitchSection('sections', {});
+    var ss = new SwitchSection(['section01','section02','section03'], {});
 
     ss.on('switch', function (e) {
       $('#sections section').removeClass('active');
