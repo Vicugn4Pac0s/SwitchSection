@@ -1,11 +1,10 @@
 import getOffsetTop from "./functions/getOffsetTop";
 import Observer from "./modules/Observer";
 
-let observer = new Observer();
-
 export default class {
   constructor(selector, options = {}) {
     let self = this;
+    self.Observer = new Observer();
     if( Array.isArray(selector) ) {
       self.selectors = [];
       selector.forEach((selector) => {
@@ -23,7 +22,7 @@ export default class {
   on(eventType, callback) {
     switch (eventType) {
       case "switch":
-        observer.on("switch", callback.bind(this));
+        this.Observer.on("switch", callback.bind(this));
         this.scrollevent();
         break;
       default:
@@ -70,7 +69,7 @@ export default class {
         self.before_section = self.current_section;
         self.current_section = section.name;
 
-        observer.trigger("switch", {
+        self.Observer.trigger("switch", {
           $_element: section.$_element,
           current_section: self.current,
           before_section: self.before_section,
