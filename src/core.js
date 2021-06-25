@@ -71,7 +71,7 @@ export default class {
 
         self.Observer.trigger("switch", {
           $_element: section.$_element,
-          current_section: self.current,
+          current_section: self.current_section,
           before_section: self.before_section,
           target: section.target,
         });
