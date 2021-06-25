@@ -35,7 +35,8 @@ export default class {
     Array.prototype.forEach.call(self.selectors, (element, index) => {
       self.sections.push({
         $_element: element,
-        id: index,
+        index: index,
+        id: "section_" + index,
         name: element.dataset.name || "section_" + index,
         target: element.dataset.target || null,
         first: getOffsetTop(element),
@@ -71,6 +72,8 @@ export default class {
 
         self.Observer.trigger("switch", {
           $_element: section.$_element,
+          index: section.index,
+          id: section.id,
           current_section: self.current_section,
           before_section: self.before_section,
           target: section.target,
