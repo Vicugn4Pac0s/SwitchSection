@@ -5,10 +5,10 @@ export default class {
   constructor(selector, options = {}) {
     let self = this;
     self.Observer = new Observer();
-    if( Array.isArray(selector) ) {
+    if (Array.isArray(selector)) {
       self.selectors = [];
       selector.forEach((selector) => {
-        self.selectors.push( document.getElementById(selector) );
+        self.selectors.push(document.getElementById(selector));
       });
     } else {
       self.selectors = document.getElementById(selector).children;
@@ -23,6 +23,14 @@ export default class {
     switch (eventType) {
       case "switch":
         this.Observer.on("switch", callback.bind(this));
+        this.scrollevent();
+        break;
+      case "onBefore":
+        this.Observer.on("onBefore", callback.bind(this));
+        this.scrollevent();
+        break;
+      case "onAfter":
+        this.Observer.on("onAfter", callback.bind(this));
         this.scrollevent();
         break;
       default:
@@ -48,7 +56,8 @@ export default class {
     let self = this;
     self.sections.forEach((section) => {
       section.first = getOffsetTop(section.$_element);
-      section.end = getOffsetTop(section.$_element) + section.$_element.clientHeight;
+      section.end =
+        getOffsetTop(section.$_element) + section.$_element.clientHeight;
     });
   }
   events() {
@@ -61,8 +70,24 @@ export default class {
   scrollevent() {
     let self = this;
     let s = window.pageYOffset + window.innerHeight / 2;
+    let count = 0;
+    let sections_len = self.sections.length;
 
     self.sections.forEach((section) => {
+      
+      //最初のセクションより前の場合
+      if (count === 0) {
+        if (section.first >= s) {
+          self.Observer.trigger("onBefore", {});
+        }
+      }
+      //最後ののセクションより後の場合
+      if (count === sections_len - 1) {
+        if (s > section.end) {
+          self.Observer.trigger("onAfter", {});
+        }
+      }
+      count++;
 
       if (section.first < s && s <= section.end) {
         if (self.current_section === section.name) return;

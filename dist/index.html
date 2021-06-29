@@ -8,7 +8,7 @@
 
   <style>
     body {
-      margin: 0;
+      margin: 1000px 0;
     }
     
     .section-wrap {
@@ -158,6 +158,13 @@
 
       $('.sticky-img').removeClass('active');
       $('.' + e.target).addClass('active');
+    });
+
+    ss.on('onBefore', function() {
+      console.log('onBefore');
+    });
+    ss.on('onAfter', function() {
+      console.log('onAfter');
     });
   </script>
 </body>
