@@ -23,19 +23,19 @@ export default class {
     switch (eventType) {
       case "switch":
         this.Observer.on("switch", callback.bind(this));
-        this.scrollevent();
         break;
       case "onBefore":
         this.Observer.on("onBefore", callback.bind(this));
-        this.scrollevent();
         break;
       case "onAfter":
         this.Observer.on("onAfter", callback.bind(this));
-        this.scrollevent();
         break;
       default:
         console.log("Error");
     }
+  }
+  switch() {
+    this.scrollevent();
   }
   reset() {
     let self = this;
@@ -74,16 +74,26 @@ export default class {
     let sections_len = self.sections.length;
 
     self.sections.forEach((section) => {
-      
+
       //最初のセクションより前の場合
       if (count === 0) {
         if (section.first >= s) {
+          if (self.current_section === 'is-before-section') return;
+
+          self.before_section = self.current_section;
+          self.current_section = 'is-before-section';
+
           self.Observer.trigger("onBefore", {});
         }
       }
       //最後ののセクションより後の場合
       if (count === sections_len - 1) {
         if (s > section.end) {
+          if (self.current_section === 'is-after-section') return;
+
+          self.before_section = self.current_section;
+          self.current_section = 'is-after-section';
+          
           self.Observer.trigger("onAfter", {});
         }
       }

@@ -158,6 +158,8 @@
 
       $('.sticky-img').removeClass('active');
       $('.' + e.target).addClass('active');
+
+      console.log('switch')
     });
 
     ss.on('onBefore', function() {
@@ -166,6 +168,8 @@
     ss.on('onAfter', function() {
       console.log('onAfter');
     });
+
+    ss.switch();
   </script>
 </body>
 
